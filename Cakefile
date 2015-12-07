@@ -24,3 +24,4 @@ test = (callback) ->
 
 task 'test', 'Run all tests', ->
   test()
+
