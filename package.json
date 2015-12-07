@@ -1,6 +1,6 @@
 {
   "name": "brown-ext-basic",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "basic template functions for brown template engine",
   "main": "index.js",
   "directories": {

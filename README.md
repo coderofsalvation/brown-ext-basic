@@ -1,11 +1,18 @@
 Basic template functions for brown template engine 
 
-<img alt='' src='https://travis-ci.org/username/reponame.svg'/>
+<img alt='' src='https://travis-ci.org/coderofsalvation/brown-ext-basic/reponame.svg'/>
 
 ## Usage
 
     npm install brown
     npm install brown-ext-basic
+
+then 
+
+    brown = require('brown')
+    require('brown-ext-basic')(brown)
+
+    brown.render(.....)
 
 ## Looping / iteration
 
@@ -32,5 +39,46 @@ output:
     !! HELLO WORLD
 
 
-## Example: foo
+## If / Else 
+
+    brown.render "{{if:foo:bar:sorry}}", {foo:"hello world", bar:"yes!"}
+
+output:
+
+    yes!
+
+## Inline templates 
+
+    str = ' 
+      {{template:foobar:
+          <b>this is {value}</b>\\n
+      }}
+
+      {{foreach:items:foobar:no items found}}
+    ';
+
+    brown.render str, { items:[1,2,3] }
+
+output:
+
+    <b>this is 1</b>
+    <b>this is 2</b>
+    <b>this is 3</b>
+
+## Include 
+
+test/include.brown :
+
+    included was {{foo}} !!
+
+coffeescript:
+
+    console.log brown.render '{{include:test/include.brown}}', { foo:"was succesful" }
+    console.log brown.render '{{include:test/include.brown:newdata}}', { newdata:{ foo:"was succesful"} }
+
+output:    
+    
+    included was succesful !!
+    included was succesful !!
+
 

@@ -18,7 +18,13 @@ console.log brown.render "{{if:foo:bar:sorry}}", {foo:"hello world", bar:"yes!"}
 
 str = '{{template:foobar:
     <b>this is {value}</b>\\n
-}}{{foreach:items:foobar:no items found}}
+}}
+
+{{foreach:items:foobar:no items found}}
 '
 
 console.log brown.render str, { items:[1,2,3] }
+
+
+console.log brown.render '{{include:test/include.brown}}', { foo:"was succesful" }
+console.log brown.render '{{include:test/include.brown:newdata}}', { newdata:{ foo:"was succesful"} }

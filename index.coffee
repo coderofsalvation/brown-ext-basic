@@ -28,3 +28,13 @@ module.exports = (brown) ->
     @[id] = str.replace(/{/g,'{{').replace(/}/g,'}}')
     return ''
 
+  brown.include = () ->
+    args = Array::slice.call(arguments)
+    file = args.shift()
+    try 
+      str = require('fs').readFileSync( __dirname+"/"+file ).toString()
+    catch 
+      str = ""
+    return brown.render str, ( if args.length then brown.safe_eval(args[0],@) else @ )
+
+
