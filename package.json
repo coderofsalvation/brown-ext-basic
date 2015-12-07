@@ -1,0 +1,14 @@
+{
+  "name": "brown-ext-basic",
+  "version": "1.0.0",
+  "description": "basic template functions for brown template engine",
+  "main": "index.js",
+  "directories": {
+  },
+  "scripts": {
+    "test": "cake test"
+  },
+  "author": "coderofsalvation",
+  "keywords":["template","brown","functions"],
+  "license": "ISC"
+}
